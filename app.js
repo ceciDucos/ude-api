@@ -1,11 +1,17 @@
-const express = require('express')
-const app = express()
-const port = 3000
+var express = require('express');
+var app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.get('/problem', (req, res) => {
+  return res.send('Received a GET HTTP method');
+});
+
+app.post('/problem', (req, res) => {
+  return res.send('Received a POST HTTP method /problem');
+});
+
+app.post('/generateAnswer', (req, res) => {
+  return res.send('Received a POST HTTP method /generateAnswer');
+});
+
+app.listen(3000);
